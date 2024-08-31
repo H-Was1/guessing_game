@@ -5,15 +5,15 @@ fn main() {
     println!("Starting the 'Guessing Game'...!");
     println!("Guess the number");
     let mut res = 0;
-    while res.clone() < 1 {
+    let numb = rand::thread_rng().gen_range(1..=10);
+    while res.clone() != 1 {
         // if answer is wrong then keep res=0 and if answer right then res=1
-        comparer(&mut res);
+        comparer(&mut res, &numb);
     }
 }
 
-fn comparer(res: &mut i32) {
+fn comparer(res: &mut i32, numb: &i8) {
     let mut guess: String = String::new();
-    let numb = rand::thread_rng().gen_range(1..=10);
 
     io::stdin()
         .read_line(&mut guess)
