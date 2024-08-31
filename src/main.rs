@@ -19,14 +19,14 @@ fn comparer(res: &mut i32, numb: &i8) {
         .read_line(&mut guess)
         .expect("Failed to read user input");
     // println!("{}", numb);
-    let guess_number = match guess.trim().parse::<i8>() {
+    let guess = match guess.trim().parse::<i8>() {
         Ok(num) => num,
         Err(_) => {
             println!("Please enter a valid number.");
             return;
         }
     };
-    match guess_number.cmp(&numb) {
+    match guess.cmp(&numb) {
         Ordering::Less => println!("Too low! Try again. {numb}"),
         Ordering::Greater => println!("Too high! Try again. {numb}"),
         Ordering::Equal => {
